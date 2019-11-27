@@ -16,6 +16,32 @@ const { Provider } = StoreContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
+    // case SET_CURRENT_PRODUCT:
+    //   console.log(action);
+    //   return {
+    //     ...state, currentProduct: action.product
+    //   };
+
+    // case REMOVE_PRODUCT:
+    //   return {
+    //     ...state,
+    //     products: state.products.filter((post) => {
+    //       return post._id !== action._id;
+    //     })
+    //   };
+    case UPDATE_PRODUCTS:
+      console.log('UPDATE ACTION', action);
+      return {
+        ...state,
+        products: [...action.products],
+        loading: false
+      };
+
+    case LOADING:
+      return {
+        ...state,
+        loading: true
+      };
     default:
       return state;
   }

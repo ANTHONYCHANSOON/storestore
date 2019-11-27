@@ -12,13 +12,14 @@ function ProductList() {
   const getProducts = () => {
     dispatch({ type: LOADING });
     API.getProducts().then(results => {
+      console.log("yuhoooo", results)
       dispatch({
         type: UPDATE_PRODUCTS,
         products: results.data
       })
       
     })
-    .catch(err => console.error(err));
+    .catch(err => console.error("error" , err));
   };
 
   useEffect(() => {

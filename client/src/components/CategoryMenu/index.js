@@ -7,10 +7,12 @@ import API from "../../utils/API";
 
 function CategoryMenu() {
   const [store, dispatch] = useStoreContext();
+  console.log("store", store)
   const category = ["CAMERAS", "TELEVISION", "COMPUTERS", "MONITORS"];
   const handleClick = search => {
     API.getProducts(search)
       .then(results => {
+        console.log(results)
         dispatch({
           type: UPDATE_PRODUCTS,
           products: results.data
